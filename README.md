@@ -8,4 +8,4 @@
 
 **Дополнительная информация:**
 * [Ссылка на макет в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?type=design&node-id=0-1&mode=design&t=GWgDbCKFxGQQDpsU-0)
-* [Ссылка на проект](https://lerachandi.github.io/mesto-project-ff/)
+
