@@ -71,6 +71,7 @@ function handleAddPlace(evt) {
   };
   renderCard(newCard, placesItem);
   closePopup(popupPlace);
+  evt.target.reset()
 };
 addFormElement.addEventListener("submit", handleAddPlace);
 
