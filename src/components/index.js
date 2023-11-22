@@ -1,7 +1,7 @@
 import "../pages/index.css";
 import { initialCards } from "./cards.js";
-import { createCard, deleteCard, likeCard } from '../components/card.js';
-import { openPopup, overlayClick, closePopup } from '../components/modal.js';
+import { createCard, deleteCard, likeCard } from './card.js';
+import { openPopup, overlayClick, closePopup } from './modal.js';
 
 // Список всех картинок
 const placesItem = document.querySelector(".places__list"); // лист со всеми картинками
@@ -9,14 +9,14 @@ const placesItem = document.querySelector(".places__list"); // лист со в�
 // Попапы
 const popupEditProfile = document.querySelector('.popup_type_edit');//Попап редактирования профиля
 const popupPlace = document.querySelector(".popup_type_new-card"); // попап добавления нового места
-const popupPlaceImage = document.querySelector('.popup_type_image'); // попап открытой картинки
-const popupImage = popupPlaceImage.querySelector(".popup__image"); // попап картинки
-const popupImageTitle = popupPlaceImage.querySelector(".popup__caption"); // подпись картинки
+const popupPlaceImage = document.querySelector('.popup_type_image'); // попап изображения
+const photoPopupPlaceImage = popupPlaceImage.querySelector(".popup__image"); // попап картинки
+const titlePopupPlaceImage = popupPlaceImage.querySelector(".popup__caption"); // подпись картинки
 
 // Кнопки
 const editProfileButton = document.querySelector('.profile__edit-button'); // кнопка редактирования профиля
 const buttonAddPlace = document.querySelector('.profile__add-button'); // кнопка добавления места
-const closeButton = document.querySelectorAll(".popup__close"); // Кнопка закрытия для всех попапов
+const closeButtonList = document.querySelectorAll(".popup__close"); // Кнопка закрытия для всех попапов
 
 // Форма: Профиль
 const profileFormElement = popupEditProfile.querySelector('.popup__form'); // форма: название, описание, кнопка
@@ -45,9 +45,9 @@ initialCards.forEach((elements) => {
 
 // Открытие карточки
 function openImagePopup(image) {
-  popupImage.src = image.target.src;
-  popupImageTitle.textContent = image.target.alt;
-  popupImage.alt = image.target.alt;
+  photoPopupPlaceImage.src = image.target.src;
+  titlePopupPlaceImage.textContent = image.target.alt;
+  photoPopupPlaceImage.alt = image.target.alt;
   openPopup(popupPlaceImage);
 };
 
@@ -89,7 +89,7 @@ editProfileButton.addEventListener("click", () => {
 });
 
 
-closeButton.forEach((button) => {
+closeButtonList.forEach((button) => {
   const popup = button.closest(".popup");
   button.addEventListener("click", () => closePopup(popup));
 });
