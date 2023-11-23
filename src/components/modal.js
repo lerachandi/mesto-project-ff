@@ -1,9 +1,6 @@
 // Открытие попапа 
-function openPopup(evt) {
-  evt.classList.add('popup_is-animated');
-  setTimeout(function () {
-    evt.classList.add("popup_is-opened");
-  }, 0);
+function openPopup(popup) {
+  popup.classList.add('popup_is-opened');
   document.addEventListener('keydown', closePopupEsc);
 
 };
@@ -18,8 +15,8 @@ function closePopupEsc(evt) {
 
 
 // Закрытие попапов 
-function closePopup(evt) {
-  evt.classList.remove("popup_is-opened");
+function closePopup(popup) {
+  popup.classList.remove("popup_is-opened");
   document.removeEventListener('keydown', closePopupEsc);
 
 };
