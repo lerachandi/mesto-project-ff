@@ -1,5 +1,4 @@
 {
-  "homepage": "https://lerachandi.github.io/mesto-project-ff",
   "name": "mesto-project-ff",
   "version": "1.0.0",
   "description": "",
@@ -8,7 +7,7 @@
     "build": "webpack --mode production",
     "dev": "webpack serve",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist" 
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
