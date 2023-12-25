@@ -23,7 +23,7 @@ function clearValidation(formElement, config) {
     inputList.forEach((inputElement) => {
       hideInputError(formElement, inputElement, config);
     });
-      
+    formElement.reset();
     toggleButtonState(inputList, buttonElement, config);
   }
 

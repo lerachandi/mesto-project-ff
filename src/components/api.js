@@ -1,4 +1,4 @@
-export { getUserInfo, getInitialCards, saveProfileData, saveNewPlaceCard, handleSetLike, handleRemoveLike, deleteCardData, saveUserAvatar };
+
 
 
 const api = {
@@ -92,3 +92,6 @@ const api = {
     })
     .then(res => checkResponse(res))
   }
+
+
+  export { getUserInfo, getInitialCards, saveProfileData, saveNewPlaceCard, handleSetLike, handleRemoveLike, deleteCardData, saveUserAvatar };

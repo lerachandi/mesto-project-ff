@@ -44,8 +44,14 @@ function createCard(cardData, deleteHandler, likeHandler, imageHandler, userId) 
     cardLikeButton.classList.add('card__like-button_is-active');
   }
 
-  if (cardData.owner._id !== userId) {
+  if (cardData.owner._id !== userId) { 
     cardDeleteButton.remove();
+  } else {
+    if (deleteHandler) { 
+      cardDeleteButton.addEventListener('click', () => { 
+        deleteHandler(cardData._id, cardElement); 
+      }); 
+    }
   }
 
 
@@ -53,29 +59,17 @@ function createCard(cardData, deleteHandler, likeHandler, imageHandler, userId) 
 
 };
 
-function likeCard(cardId, cardLikeCountElement, cardLikeButton) {
-  const isLiked = cardLikeButton.classList.contains('card__like-button_is-active');
-  if (isLiked) {
-    handleRemoveLike(cardId)
-    .then((updatedCard) => {
-      cardLikeCountElement.textContent = updatedCard.likes.length;
-      cardLikeButton.classList.remove('card__like-button_is-active');
-    })
-    .catch((error) => {
-      console.log(`Ошибка: ${error}`);
-    });
-  } else {
-    handleSetLike(cardId)
-    .then((updatedCard) => {
-      cardLikeCountElement.textContent = updatedCard.likes.length;
-      cardLikeButton.classList.add('card__like-button_is-active');
-    })
-    .catch((error) => {
-      console.log(`Ошибка: ${error}`);
-    });
-  }
-
-
+function likeCard(cardId, cardLikeCountElement, cardLikeButton) { 
+  const isLiked = cardLikeButton.classList.contains('card__like-button_is-active'); 
+  const likeMethod = isLiked ? handleRemoveLike(cardId) : handleSetLike(cardId);
+  
+  likeMethod.then((updatedCard) => { 
+      cardLikeCountElement.textContent = updatedCard.likes.length; 
+      cardLikeButton.classList.toggle('card__like-button_is-active'); 
+    }) 
+    .catch((error) => { 
+      console.log(`Ошибка: ${error}`); 
+    }); 
 };
 
 function deleteCard(cardId, cardElement) {
@@ -87,3 +81,5 @@ function deleteCard(cardId, cardElement) {
     console.log(`Ошибка: ${error}`);
   });
 }
+
+
