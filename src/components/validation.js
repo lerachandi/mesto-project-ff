@@ -27,7 +27,6 @@ function clearValidation(formElement, config) {
     toggleButtonState(inputList, buttonElement, config);
   }
 
-
 function isValid(formElement, inputElement, config) {
   if (inputElement.validity.patternMismatch) {
     inputElement.setCustomValidity(inputElement.dataset.error);
